@@ -15,8 +15,8 @@ the __'Capture'__ button to capture the current frame of the video.
 
 * _The other screen has 3 buttons:_ 
   - __'Create Shareable Link'__ button
-creates the link which is going to be displayed below.<sup id="a1">[1](#f1)</sup>
-    - This link can be copied with the __'Copy Link'__ button or be viewed on the 
+creates a link which is going to be displayed below.<sup id="a1">[1](#f1)</sup>
+    - This link can be copied with the __'Copy Link'__ button or be viewed on a 
 browser with the __'Open Link'__ button.
 
 <b id="f1">1.</b> Uses _Filestack_ service which needs an _api key_. [↩](#a1)
