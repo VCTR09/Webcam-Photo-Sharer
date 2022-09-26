@@ -1,0 +1,86 @@
+<CameraScreen>:
+    GridLayout:
+        cols: 1
+        padding: 10
+        spacing: 10
+        Camera:
+            id: camera
+            resolution: (1280, 960)
+            play: False
+            size_hint_y: 0.8
+            opacity: 0
+        RoundedButton:
+            id: camera_button
+            text: 'Start Camera'
+            on_press: root.start() if root.ids.camera.play == False else root.stop()
+            size_hint_y: 0.1
+        RoundedButton:
+            text: 'Capture'
+            on_press: root.capture()
+            size_hint_y: 0.1
+
+
+<ImageScreen>
+    GridLayout:
+        padding: 10
+        spacing: 10
+        cols: 1
+        Image:
+            id: img
+            size_hint_y: 0.65
+        RoundedButton:
+            text: 'Create Sharable Link'
+            on_press: root.create_link()
+            size_hint_y: 0.1
+        Label:
+            id: link
+            text: ''
+            size_hint_y: 0.08
+        GridLayout:
+            cols: 2
+            size_hint_y: 0.1
+            RoundedButton:
+                text: 'Copy Link'
+                on_press: root.copy_link()
+            RoundedButton:
+                text: 'Open Link'
+                on_press: root.open_link()
+        GridLayout:
+            cols: 1
+            size_hint_y: 0.07
+            padding: 10, 10
+            spacing: 10, 0
+            Button:
+                text: "Go back to Camera Screen"
+                background_color: 1, 1, 1, 0
+                opacity: 1 if self.state == 'normal' else 0.5
+                color: 0, 0, 0, 1
+                on_press: root.go_back_to_camera_scr()
+
+
+<RoundedButton@Button>
+    background_color: (0,0,0,0)
+    background_normal: ''
+    font_size: '16sp'
+    canvas.before:
+        Color:
+            rgba: (191/255,90/255,6/255,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [35]
+
+
+<RootWidget>:
+    canvas.before:
+        Color:
+            rgba: (221/255,148/255,109/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    CameraScreen:
+        id: camera_screen
+        name: 'camera_screen'
+    ImageScreen:
+        id: image_screen
+        name: 'image_screen'
